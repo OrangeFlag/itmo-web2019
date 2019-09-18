@@ -1,21 +1,21 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+
+    <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.rawgit.com/olado/doT/master/doT.js"></script>
+    <script src="https://cdn.rawgit.com/less/less.js/master/dist/less.js"></script>
     <script src="js/global.js"></script>
 </head>
 <body>
-<form accept-charset=utf-8>
-    Country:
-    <br>
-    <input type="text" id="country">
-    <br><br>
-    City:
-    <br>
-    <input type="text" id="city">
-    <br><br>
-    <input type="button" value="Submit" onclick="drawWeather()">
+
+<header>
+    WeatherNow
+</header>
+<form accept-charset=utf-8 onsubmit="getWeather(); return false;">
+    <input class="simple-input" type="text" id="city" placeholder="City" >
 </form>
 
 <div id="city_country"></div>
