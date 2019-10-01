@@ -3,47 +3,37 @@ const weatherAPI = `https://api.openweathermap.org/data/2.5/weather?APPID=${unse
 
 function drawWeather(weather) {
 
-    const city_country = doT.template(`
+    const weatherTemplate = doT.template(`
         {{? it == null}}
         City not found
+        <br>
         {{?? it.name }}
         City: {{=it.name}}, {{=it.sys.country}}
+        <br>
         {{??}}
         {{?}}
-        `);
-    document.getElementById("city_country").innerHTML = city_country(weather);
-
-    // const time = doT.template("Time: {{=new Date(it.dt*1000).toISOString().slice(-13, -5)}}");
-    // document.getElementById("time").innerHTML = time(weather);
-
-    const temp = doT.template(`
+        
         {{? it && it.main && it.main.temp }}
         Temperature: {{=it.main.temp}}°
+        <br>
         {{?}}
-        `);
-    document.getElementById("temp").innerHTML = temp(weather);
-
-    const clouds_percent = doT.template(`
+        
         {{? it && it.clouds && it.clouds.all }}
         Clouds: {{=it.clouds.all}}%
+        <br>
         {{?}}
-        `);
-    document.getElementById("clouds_percent").innerHTML = clouds_percent(weather);
-
-    const wind_speed = doT.template(`
+        
         {{? it && it.wind && it.wind.speed }}
         Wind speed: {{=it.wind.speed}}m/s
+        <br>
         {{?}}
-        `);
-    document.getElementById("wind_speed").innerHTML = wind_speed(weather);
-
-    const visibility = doT.template(`
+        
         {{? it && it.visibility }}
-        Visibility: 
-        {{=it.visibility}}m
+        Visibility: {{=it.visibility}}m
+        <br>
         {{?}}
         `);
-    document.getElementById("visibility").innerHTML = visibility(weather);
+    document.getElementById("weather").innerHTML = weatherTemplate(weather);
 
 }
 
@@ -57,3 +47,8 @@ function getWeather() {
             }
         })
 }
+
+document.getElementById("city-form").onsubmit = function () {
+    getWeather();
+    return false;
+};
