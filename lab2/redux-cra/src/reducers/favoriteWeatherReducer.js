@@ -10,9 +10,9 @@ const initialState = {
 export function favoriteWeatherReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_FAVORITE_TOWN:
-            return {...state, favoriteTowns: addIfNotExists(state.favoriteTowns, action.payload)};
+            return {...state, favoriteTowns: addIfNotExists(state.favoriteTowns, action.payload.town)};
         case DELETE_FAVORITE_TOWN:
-            return {...state, favoriteTowns: removeIfExists(state.favoriteTowns, action.payload)};
+            return {...state, favoriteTowns: removeIfExists(state.favoriteTowns, action.payload.town)};
         default:
             return state
     }

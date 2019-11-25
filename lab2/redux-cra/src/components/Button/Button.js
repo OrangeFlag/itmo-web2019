@@ -1,10 +1,10 @@
-import React  from 'react';
+import React from 'react';
 import ButtonWrapper from './ButtonWrapper.style';
 import PropTypes from "prop-types";
 
 export const Button = (props) => {
     return (
-        <ButtonWrapper onClick={props.action}>
+        <ButtonWrapper onClick={props.action} type={props.type || "button"}>
             {props.children}
         </ButtonWrapper>
 
@@ -12,5 +12,6 @@ export const Button = (props) => {
 };
 
 Button.propTypes = {
-    action: PropTypes.func
+    action: PropTypes.func,
+    type: PropTypes.string
 };

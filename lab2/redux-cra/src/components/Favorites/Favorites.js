@@ -2,6 +2,7 @@ import React from 'react'
 import {Button} from "../Button/Button";
 import Input from "../Input/Input";
 import Container from "../Container/Container.style";
+import PropTypes from "prop-types";
 
 export class Favorites extends React.Component {
 
@@ -15,16 +16,25 @@ export class Favorites extends React.Component {
         this.setState({inputTown: e.target.value})
     };
 
-    handleBtnClick = e => {
-        this.props.addFavoriteTown(this.state.inputTown)
+    handleSubmit = e => {
+        if (this.state.inputTown !== "mainTown"){
+            this.props.addFavoriteTown(this.state.inputTown.toLowerCase());
+        }
+        e.preventDefault();
     };
 
     render() {
         return (<Container>
             <p>Избранное</p>
-            <Input id="new_town" type="text" name="favorite" placeholder="Добавить новый город" maxLength="100"
-                   handleChange={this.handleInputChange}/>
-            <Button action={this.handleBtnClick}>+</Button>
+            <form onSubmit={this.handleSubmit}>
+                <Input id="new_town" type="text" name="favorite" placeholder="Добавить новый город" maxLength="100"
+                       handleChange={this.handleInputChange}/>
+                <Button type={"submit"}>+</Button>
+            </form>
         </Container>)
     }
 }
+
+Favorites.propTypes = {
+    addFavoriteTown: PropTypes.func,
+};

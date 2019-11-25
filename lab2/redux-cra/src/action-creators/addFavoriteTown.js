@@ -6,7 +6,7 @@ export function addFavoriteTown(town) {
     return dispatch => {
         dispatch({
             type: ADD_FAVORITE_TOWN,
-            payload: town
+            payload: {town: town}
         });
 
         dispatch(updateWeatherByTownRequest(town))

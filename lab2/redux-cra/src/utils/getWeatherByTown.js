@@ -3,7 +3,9 @@ import {weatherAPI} from "./openWeatherMap";
 export async function getWeatherByTown(town) {
     const response = await fetch(weatherAPI + `&q=${town}&units=metric`);
 
-    const json = await response.json();
+    if (response.status !== 200){
+        throw new Error('Status not 200');
+    }
 
-    return json;
+    return await response.json();
 }

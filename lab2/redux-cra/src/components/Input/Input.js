@@ -31,6 +31,7 @@ class Input extends React.Component {
 
     render() {
         this.handleChange = this.props.handleChange || this.handleChange;
+        this.handleSubmit = this.props.handleSubmit;
 
         return (
             <StyledInput
@@ -39,6 +40,7 @@ class Input extends React.Component {
                 name={this.props.name}
                 defaultValue={this.state.value}
                 onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
                 required={this.props.required}
                 pattern={this.props.pattern}
                 placeholder={this.props.placeholder}

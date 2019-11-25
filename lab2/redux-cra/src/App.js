@@ -12,13 +12,13 @@ import {Favorites} from "./components/Favorites/Favorites";
 const mapDispatchToProps = dispatch => ({
     addFavoriteTownAction: (town) => dispatch(addFavoriteTown(town)),
     deleteFavoriteTownAction: (town) => dispatch(deleteFavoriteTown(town)),
-    updateGeolocationRequestAction: (lastTown) => dispatch(updateGeolocationRequest(lastTown))
+    updateGeolocationRequestAction: () => dispatch(updateGeolocationRequest())
 });
 
 const mapStateToProps = store => {
     return {
-        mainTown: store.mainWeather.mainTown,
         weathers: store.page.weatherInfo,
+        status: store.page.status,
         favoriteTowns: store.favoriteWeather.favoriteTowns
     }
 };
@@ -29,29 +29,28 @@ class App extends Component {
     render() {
         const {addFavoriteTownAction, deleteFavoriteTownAction, updateGeolocationRequestAction} = this.props;
 
-        const {mainTown, weathers, favoriteTowns} = this.props;
-
-        const mainWeather = weathers[mainTown];
-
+        const {weathers, favoriteTowns, status} = this.props;
 
         return (
             <div>
                 <Header updateGeolocation={updateGeolocationRequestAction}/>
                 <WeatherWidget
-                    town={mainWeather && mainWeather.town}
-                    weatherImg={""}
-                    temperature={mainWeather && mainWeather.temperature}
-                    wind={mainWeather && mainWeather.wind}
-                    cloudiness={mainWeather && mainWeather.cloudiness}
-                    mercuryPressure={mainWeather && mainWeather.mercuryPressure}
-                    humidity={mainWeather && mainWeather.humidity}
-                    uploaded={true}
+                    {...weathers["mainTown"]}
+                    status={status["mainTown"]}
+                    key={"mainTown"}
+                    deleteFavoriteTownAction={deleteFavoriteTownAction}
                 />
                 <Favorites addFavoriteTown={addFavoriteTownAction}/>
                 <FavoriteWeatherList deleteFavoriteTownAction={deleteFavoriteTownAction} weathers={weathers}
+                                     status={status}
                                      favoriteTowns={favoriteTowns}/>
             </div>
         );
+    }
+
+    componentDidMount() {
+        const {updateGeolocationRequestAction} = this.props;
+        updateGeolocationRequestAction()
     }
 }
 

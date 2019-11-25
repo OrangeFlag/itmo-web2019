@@ -4,7 +4,9 @@ export async function getWeatherByCoord(latitude, longitude) {
 
     const response = await fetch(weatherAPI + `&lat=${latitude}&lon=${longitude}&units=metric`);
 
-    const json = await response.json();
+    if (response.status !== 200) {
+        throw new Error('Status not 200');
+    }
 
-    return json;
+    return await response.json();
 }

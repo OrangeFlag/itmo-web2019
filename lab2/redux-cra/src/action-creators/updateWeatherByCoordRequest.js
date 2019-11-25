@@ -9,14 +9,12 @@ export function updateWeatherByCoordRequest(latitude, longitude) {
 
         dispatch({
             type: UPDATE_WEATHER_BY_COORD_REQUEST,
-            payload: {
-                loading: true
-            }
+            payload: {town: "mainTown"}
         });
 
 
         getWeatherByCoord(latitude, longitude).then(res => {
             dispatch(updateWeatherByCoordSuccess(res))
-        }).catch(error => dispatch(updateWeatherError()));
+        }).catch(error => dispatch(updateWeatherError("mainTown")));
     }
 }

@@ -3,22 +3,31 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from "../Container/Container.style";
 import Loader from "../Loader/Loader.style";
+import {statusEnum} from "../../utils/statusEnum";
 
 const Wait = styled.p`
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
+  color: #e1da8a;
+`;
+
+const Error = styled.p`
+  font-size: 1.5em;
+  text-align: center;
+  color: #f27670;
 `;
 
 
 export class WeatherWidget extends React.Component {
     render() {
         const {
-            weatherImg, town, temperature,
+            icon, town, temperature,
             wind, cloudiness, mercuryPressure,
-            humidity, uploaded
+            humidity, status
         } = this.props;
-        if (uploaded == null || uploaded === false) {
+        const {deleteFavoriteTownAction} = this.props;
+
+        if (status === statusEnum.loading) {
             return (
                 <Container>
                     <Wait>Подождите, данные загружаются</Wait>
@@ -26,30 +35,42 @@ export class WeatherWidget extends React.Component {
                     <Loader/>
                 </Container>)
 
+        } else if (status === statusEnum.error) {
+            if (town !== "mainTown") {
+                setTimeout(() => {
+                    deleteFavoriteTownAction(town)
+                }, 5000)
+            }
+            return (
+                <Container>
+                    <Error>Ошибка при запросе погоды</Error>
+                </Container>)
         } else {
             return (
                 <Container>
                     {town}
-                    <br/>
-                    <img src={weatherImg} alt=""/>
-                    <br/>
-                    Temperature: {temperature} °C
-                    <br/>
-                    Wind: {wind} m/s
-                    <br/>
-                    Cloudiness: {cloudiness} %
-                    <br/>
-                    Millimeter of mercury: {mercuryPressure} mm
-                    <br/>
-                    Humidity: {humidity} %
-                    <br/>
+                    {
+                        icon && <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
+                    }
+                    <p>
+                        Temperature: {temperature} °C
+                        <br/>
+                        Wind: {wind} m/s
+                        <br/>
+                        Cloudiness: {cloudiness} %
+                        <br/>
+                        Millimeter of mercury: {mercuryPressure} mm
+                        <br/>
+                        Humidity: {humidity} %
+                        <br/>
+                    </p>
                 </Container>)
         }
     }
 }
 
 WeatherWidget.propTypes = {
-    weatherImg: PropTypes.string,
+    icon: PropTypes.string,
     town: PropTypes.string,
     temperature: PropTypes.number,
     wind: PropTypes.number,
@@ -57,4 +78,5 @@ WeatherWidget.propTypes = {
     mercuryPressure: PropTypes.number,
     humidity: PropTypes.number,
     uploaded: PropTypes.bool,
+    deleteFavoriteTownAction: PropTypes.func,
 };

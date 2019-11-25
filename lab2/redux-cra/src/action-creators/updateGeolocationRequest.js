@@ -19,6 +19,8 @@ export function updateGeolocationRequest() {
             }, (err) => {
                 dispatch(updateGeolocationError())
             });
+        } else {
+            dispatch(updateGeolocationError())
         }
     }
 }
