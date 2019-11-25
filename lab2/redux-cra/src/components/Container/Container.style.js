@@ -5,7 +5,7 @@ const Container = styled("div")`
   flex-flow: row nowrap;
   align-items: center;
 
-  // width: 100%;
+  width: 76%;
 
   background-color: #0138a5;
   background-color: ___CSS_1___;
