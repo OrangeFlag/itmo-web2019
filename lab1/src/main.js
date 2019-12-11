@@ -6,21 +6,17 @@ function drawWeather(getWeather, attachWeather, weatherTemplate, notFoundTemplat
     });
 }
 
-function getCity() {
-    return document.getElementById("city").value;
-}
-
 function attachWeather(weatherHTML) {
     document.getElementById("weather").innerHTML = weatherHTML;
 }
 
 if (typeof document !== 'undefined') {
-    document.getElementById("city-form").onsubmit = function () {
-        drawWeather(getWeather, attachWeather, weatherTemplate, notFoundTemplate, getCity());
-        return false;
+    document.getElementById("city-form").onsubmit = function (event) {
+        drawWeather(getWeather, attachWeather, weatherTemplate, notFoundTemplate, event.target[0].value);
+        event.preventDefault()
     };
 }
 
 if (typeof module !== 'undefined') {
-    module.exports = {drawWeather, getCity, attachWeather};
+    module.exports = {drawWeather, attachWeather};
 }

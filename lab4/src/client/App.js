@@ -8,11 +8,13 @@ import {WeatherWidget} from "./components/WeatherWidget/WeatherWidget";
 import {FavoriteWeatherList} from "./components/FavoriteWeatherList/FavoriteWeatherList";
 import {deleteFavoriteTown} from "./action-creators/deleteFavoriteTown";
 import {Favorites} from "./components/Favorites/Favorites";
+import {getFavoriteTowns} from "./action-creators/getFavoriteTowns";
 
 const mapDispatchToProps = dispatch => ({
     addFavoriteTownAction: (town) => dispatch(addFavoriteTown(town)),
     deleteFavoriteTownAction: (town) => dispatch(deleteFavoriteTown(town)),
-    updateGeolocationRequestAction: () => dispatch(updateGeolocationRequest())
+    updateGeolocationRequestAction: () => dispatch(updateGeolocationRequest()),
+    getFavoriteTownsAction: () => dispatch(getFavoriteTowns())
 });
 
 const mapStateToProps = store => {
@@ -51,8 +53,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const {updateGeolocationRequestAction} = this.props;
-        updateGeolocationRequestAction()
+        const {updateGeolocationRequestAction, getFavoriteTownsAction} = this.props;
+        updateGeolocationRequestAction();
+        getFavoriteTownsAction();
     }
 }
 
