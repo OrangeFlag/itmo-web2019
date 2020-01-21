@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Button} from "../Button/Button";
+import PropTypes from 'prop-types';
 import Container from "../Container/Container.style";
 
 const Name = styled.h1`
@@ -18,4 +19,6 @@ export class Header extends React.Component {
     }
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+    updateGeolocation: PropTypes.func
+};

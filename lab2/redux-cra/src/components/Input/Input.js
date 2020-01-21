@@ -31,33 +31,19 @@ class Input extends React.Component {
 
     render() {
         this.handleChange = this.props.handleChange || this.handleChange;
-        this.handleSubmit = this.props.handleSubmit;
 
         return (
             <StyledInput
-                id={this.props.id}
-                type={this.props.type}
-                name={this.props.name}
+                {...this.props}
                 defaultValue={this.state.value}
                 onChange={this.handleChange}
-                onSubmit={this.handleSubmit}
-                required={this.props.required}
-                pattern={this.props.pattern}
-                placeholder={this.props.placeholder}
             />
         );
     }
 }
 
 Input.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'email', 'password', 'number']),
-    required: PropTypes.bool,
-    pattern: PropTypes.string,
-    placeholder: PropTypes.string,
-    handleChange: PropTypes.func
+    handleChange: PropTypes.func,
 };
 
 

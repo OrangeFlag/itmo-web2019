@@ -1,7 +1,7 @@
 function drawWeather(getWeather, attachWeather, weatherTemplate, notFoundTemplate, city) {
     getWeather(city).then(response => {
         attachWeather(weatherTemplate(response));
-    }).catch(_ => {
+    }).catch(e => {
         attachWeather(notFoundTemplate());
     });
 }

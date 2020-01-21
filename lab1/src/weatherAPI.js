@@ -3,7 +3,11 @@ const weatherAPI = `https://api.openweathermap.org/data/2.5/weather?APPID=${unse
 
 async function getWeather(city) {
     return fetch(weatherAPI + `&q=${city}&units=metric`).then(response => {
-        return response.json()
+        if (response.status !== 200) {
+            throw new Error("Not 200 response")
+        } else {
+            return response.json()
+        }
     })
 }
 

@@ -38,7 +38,7 @@ export class WeatherWidget extends React.Component {
         } else if (status === statusEnum.error) {
             if (town !== "mainTown") {
                 setTimeout(() => {
-                    deleteFavoriteTownAction(town)
+                    deleteFavoriteTownAction && deleteFavoriteTownAction(town)
                 }, 5000)
             }
             return (
@@ -77,6 +77,6 @@ WeatherWidget.propTypes = {
     cloudiness: PropTypes.number,
     mercuryPressure: PropTypes.number,
     humidity: PropTypes.number,
-    uploaded: PropTypes.bool,
+    status: PropTypes.string,
     deleteFavoriteTownAction: PropTypes.func,
 };

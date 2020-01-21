@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tests should render correctly + 1`] = `
+<Button>
+  <styled.button
+    type="button"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "JEQYc",
+            "rules": Array [
+              "
+    border: 0;
+    padding: 13px 16px;
+    // height: 50px;
+    // line-height: 50px;
+    // border-radius: ___CSS_0___;
+    // box-shadow: ___CSS_1___;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 4px;
+
+    &:hover {
+        text-decoration: none;
+        background: #cccccc;
+        color: ___CSS_3___;
+    }
+   
+
+    &:focus {
+        text-decoration: none;
+        outline: none;
+    }
+",
+            ],
+          },
+          "displayName": "styled.button",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "button",
+          "toString": [Function],
+          "usesTheme": false,
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      type="button"
+    >
+      <button
+        className="sc-bdVaJa JEQYc"
+        type="button"
+      >
+        +
+      </button>
+    </StyledComponent>
+  </styled.button>
+</Button>
+`;
+
+exports[`Button tests should render correctly with type 1`] = `
+<Button
+  type="reset"
+>
+  <styled.button
+    type="reset"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "JEQYc",
+            "rules": Array [
+              "
+    border: 0;
+    padding: 13px 16px;
+    // height: 50px;
+    // line-height: 50px;
+    // border-radius: ___CSS_0___;
+    // box-shadow: ___CSS_1___;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 4px;
+
+    &:hover {
+        text-decoration: none;
+        background: #cccccc;
+        color: ___CSS_3___;
+    }
+   
+
+    &:focus {
+        text-decoration: none;
+        outline: none;
+    }
+",
+            ],
+          },
+          "displayName": "styled.button",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "button",
+          "toString": [Function],
+          "usesTheme": false,
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      type="reset"
+    >
+      <button
+        className="sc-bdVaJa JEQYc"
+        type="reset"
+      >
+        +
+      </button>
+    </StyledComponent>
+  </styled.button>
+</Button>
+`;

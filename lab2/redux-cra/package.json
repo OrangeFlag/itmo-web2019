@@ -28,7 +28,9 @@
       "enzyme-to-json/serializer"
     ]
   },
-  "setupFiles": ["./src/setupTests.js"],
+  "setupFiles": [
+    "./src/setupTests.js"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

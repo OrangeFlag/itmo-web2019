@@ -7,13 +7,20 @@
         "less": "3.10.3"
     },
     "scripts": {
-        "test": "mocha"
+        "test": "karma start test/karma.conf.js && mocha --exclude test/browser.test.js"
     },
     "devDependencies": {
         "chai": "^4.2.0",
-        "mocha": "^6.2.2",
-        "chai-fetch-mock": "^2.0.0",
         "fetch-mock": "6.x",
+        "karma": "^4.4.1",
+        "karma-chai": "^0.1.0",
+        "karma-firefox-launcher": "^1.2.0",
+        "karma-fixture": "^0.2.6",
+        "karma-html": "^1.0.5",
+        "karma-html2js-preprocessor": "^1.1.0",
+        "karma-mocha": "^1.3.0",
+        "karma-mocha-reporter": "^2.2.5",
+        "mocha": "^6.2.2",
         "node-fetch": "^2.6.0"
     }
 }

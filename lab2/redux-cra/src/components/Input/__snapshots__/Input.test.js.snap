@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input test should render correctly 1`] = `
+<Input
+  id="new_town"
+  maxLength="100"
+  name="favorite"
+  placeholder="Добавить новый город"
+  type="text"
+>
+  <styled.input
+    defaultValue=""
+    id="new_town"
+    maxLength="100"
+    name="favorite"
+    onChange={[Function]}
+    placeholder="Добавить новый город"
+    type="text"
+  >
+    <StyledComponent
+      defaultValue=""
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "hMNFWJ",
+            "rules": Array [
+              "
+  background-color: ___CSS_0___;
+  border: 1px solid ___CSS_1___;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  outline: none;
+  font-size: '1rem';
+  transition: ___CSS_2___;
+
+  &:focus {
+    border: 1px solid ___CSS_3___;
+    transition: ___CSS_4___;
+  }
+",
+            ],
+          },
+          "displayName": "styled.input",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "input",
+          "toString": [Function],
+          "usesTheme": false,
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      id="new_town"
+      maxLength="100"
+      name="favorite"
+      onChange={[Function]}
+      placeholder="Добавить новый город"
+      type="text"
+    >
+      <input
+        className="sc-bdVaJa hMNFWJ"
+        defaultValue=""
+        id="new_town"
+        maxLength="100"
+        name="favorite"
+        onChange={[Function]}
+        placeholder="Добавить новый город"
+        type="text"
+      />
+    </StyledComponent>
+  </styled.input>
+</Input>
+`;
